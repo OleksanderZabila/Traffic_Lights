@@ -1,0 +1,58 @@
+@startuml
+TrafficLightControl -> TrafficLight: void Ran ()
+activate TrafficLight
+TrafficLight -> Light: void changelight ( Light )
+deactivate TrafficLight
+activate Light
+Light -> Green :  +string GetColor()
+deactivate Light
+activate Green
+Green -> Light : LightGreen
+destroy Green
+activate Light
+Light -> TrafficLight : LightGreen
+deactivate Light
+activate TrafficLight
+TrafficLight -> TrafficLightControl : LightGreen
+deactivate TrafficLight
+activate TrafficLightControl
+TrafficLightControl -> TrafficLight
+deactivate TrafficLightControl
+TrafficLightControl -> TrafficLight: void Ran ()
+activate TrafficLight
+TrafficLight -> Light: void changelight ( Light )
+deactivate TrafficLight
+activate Light
+Light -> Yellow :  +string GetColor()
+deactivate Light
+activate Yellow
+Yellow -> Light : LightYellow
+destroy Yellow
+activate Light
+Light -> TrafficLight : LightYellow
+deactivate Light
+activate TrafficLight
+TrafficLight -> TrafficLightControl : LightYellow
+deactivate TrafficLight
+activate TrafficLightControl
+TrafficLightControl -> TrafficLight
+deactivate TrafficLightControl
+TrafficLightControl -> TrafficLight: void Ran ()
+activate TrafficLight
+TrafficLight -> Light: void changelight ( Light )
+deactivate TrafficLight
+activate Light
+Light -> Red :  +string GetColor()
+deactivate Light
+activate Red
+Red -> Light : LightRed
+destroy Red
+activate Light
+Light -> TrafficLight : LightRed
+destroy Light
+activate TrafficLight
+TrafficLight -> TrafficLightControl : LightRed
+destroy TrafficLight
+activate TrafficLightControl
+
+@enduml

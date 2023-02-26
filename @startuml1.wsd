@@ -1,0 +1,43 @@
+@startuml
+class TrafficLightControl
+{
+-TrafficLight
+-LightRed
+-LightYellow
+-LightGreen
+
++ void Ran()
++ void stop()
+
+-void changelight() 
+}
+
+class TrafficLight
+{
++void changelight ( Light )
+}
+interface Light
+{
+    +string GetColor()
+}
+class Red
+{
+    -string GetColor
+    +string GetColor()
+}
+class Green
+{
+    -string GetColor
+    +string GetColor()
+}
+class Yellow
+{
+    -string GetColor
+    +string GetColor()
+}
+Light <|-- Yellow
+Light <|-- Green
+Light <|-- Red
+Light --* TrafficLight
+TrafficLight --* TrafficLightControl
+@enduml
