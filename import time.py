@@ -8,23 +8,24 @@ class TrafficLightControl:
         self.light_green = Green()
 
     def run(self):
-        self.change_light()
+        self.traffic_light.change_light(self.light_green)
+        time.sleep(3)
+        self.traffic_light.change_light(self.light_yellow)
+        time.sleep(1)
+        self.traffic_light.change_light(self.light_red)
+        time.sleep(2)
 
     def stop(self):
         pass
 
-    def change_light(self):
-     print(self.light_red.get_color())
-     time.sleep(5)
-     print(self.light_yellow.get_color())
-     time.sleep(2)
-     print(self.light_green.get_color())
-     time.sleep(5)
-
 
 class TrafficLight:
+    def __init__(self):
+        self._current_light = None
+
     def change_light(self, light):
-        pass
+         print(light.get_color())
+
 
 
 class Light:
@@ -45,6 +46,7 @@ class Green(Light):
 class Yellow(Light):
     def get_color(self):
         return "Yellow"
+
 
 traffic_light_control = TrafficLightControl()
 traffic_light_control.run()
